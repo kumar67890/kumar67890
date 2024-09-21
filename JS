@@ -1,0 +1,28 @@
+// Implement swipe gestures for mobile devices
+document.addEventListener('DOMContentLoaded', () => {
+    const feed = document.getElementById('feed');
+    let startX = 0;
+    let endX = 0;
+
+    // Function to detect swipe direction
+    function handleGesture() {
+        if (startX > endX) {
+            console.log('Swiped Left');
+            // Move to next post or perform an action
+        } else {
+            console.log('Swiped Right');
+            // Move to previous post or perform an action
+        }
+    }
+
+    // Touch start event
+    feed.addEventListener('touchstart', (e) => {
+        startX = e.changedTouches[0].screenX;
+    });
+
+    // Touch end event
+    feed.addEventListener('touchend', (e) => {
+        endX = e.changedTouches[0].screenX;
+        handleGesture();
+    });
+});
